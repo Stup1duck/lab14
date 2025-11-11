@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EADBC8; 
+    color: #2E2A28; 
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #653A30; 
+    margin-bottom: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    margin: 15px 0;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff; 
+    background-color: #B0725B; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #653A30; 
+}

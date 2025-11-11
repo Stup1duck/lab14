@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ПП-26 Карабінович</title>
+    </head>
+    <body>
+        <script>
+        
+            let arr = [];
+            for (let i = 0; i < 15; i++) {
+                arr[i] = Math.floor(Math.random() * 100) + 1;
+            }
+            document.write("Початковий масив: " + arr.join(" ") + "<br>");
+
+            let minIndex = 0;
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] < arr[minIndex]) {
+                    minIndex = i;
+                }
+            }
+
+            let sum = arr[0] + arr[arr.length - 1];
+            arr[minIndex] = sum;
+            document.write("Змінений масив: " + arr.join(" ") + "<br>");
+        </script>
+    </body>
+</html>
