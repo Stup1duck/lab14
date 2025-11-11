@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="uk">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ПП-26 Карабінович</title>
-    </head>
-    <body>
-        <script>
+<head>
+<meta charset="UTF-8">
+<title>ПП-26 Карабінович</title>
+</head>
+<body>
+<script>
+"use strict";
 
-            let arr = [];
-            for (let i = 0; i < 15; i++) {
-                arr.push(Math.floor(Math.random() * 100) - 50); 
-            }
-            document.write("Початковий масив: " + arr.join(" ") + "<br>");
+let arr = [];
+for (let i = 0; i < 15; i++) {
+    arr[i] = Math.floor(Math.random() * 71) - 20; 
+}
 
-            let positiveOddIndexNumbers = arr.filter((value, index) => value > 0 && index % 2 !== 0);
-            let averagePositiveOddIndex = 
-                positiveOddIndexNumbers.reduce((sum, value) => sum + value, 0) / positiveOddIndexNumbers.length;
-            document.write("Середнє арифметичне додатних чисел на непарних місцях: " + averagePositiveOddIndex.toFixed(2) + "<br>");
+document.write("<p><b>Початковий масив:</b> " + arr.join(", ") + "</p>");
 
-            let B = 10;
-            let countLessThanB = arr.filter(value => value < B).length;
-            document.write("Кількість чисел, менших за " + B + ": " + countLessThanB + "<br>");
+let C = parseFloat(prompt("Введіть значення C:"));
 
-        </script>
-    </body>
+let sum = 0;
+let count = 0;
+
+for (let i = 0; i < arr.length; i++) {
+    if ((i + 1) % 2 !== 0 && arr[i] > 0) { 
+        sum += arr[i];
+        count++;
+    }
+}
+
+let average = (count > 0) ? (sum / count) : 0;
+
+let product = 1;
+let found = false;
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < C) {
+        product *= arr[i];
+        found = true;
+    }
+}
+
+document.write("<p><b>Середнє арифметичне додатних чисел на непарних місцях:</b> " + average.toFixed(2) + "</p>");
+if (found)
+    document.write("<p><b>Добуток чисел, менших за C = " + C + ":</b> " + product + "</p>");
+else
+    document.write("<p><b>У масиві немає чисел менших за C = " + C + ".</b></p>");
+</script>
+</body>
 </html>
