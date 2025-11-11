@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="uk">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ПП-26 Карабінович</title>
-    </head>
-    <body>
-        <script>
-        
-            let arr = [];
-            for (let i = 0; i < 15; i++) {
-                arr[i] = Math.floor(Math.random() * 100) + 1;
-            }
-            document.write("Початковий масив: " + arr.join(" ") + "<br>");
+<head>
+<meta charset="UTF-8">
+<title>Заміна мінімального елемента</title>
+</head>
+<body>
+<script>
+"use strict";
 
-            let minIndex = 0;
-            for (let i = 1; i < arr.length; i++) {
-                if (arr[i] < arr[minIndex]) {
-                    minIndex = i;
-                }
-            }
+let arr = [];
+for (let i = 0; i < 15; i++) {
+    arr[i] = Math.floor(Math.random() * 100) + 1;
+}
 
-            let sum = arr[0] + arr[arr.length - 1];
-            arr[minIndex] = sum;
-            document.write("Змінений масив: " + arr.join(" ") + "<br>");
-        </script>
-    </body>
+document.write("<p>Початковий масив: " + arr.join(", ") + "</p>");
+
+let min = arr[0];
+let minIndex = 0;
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+        min = arr[i];
+        minIndex = i;
+    }
+}
+
+let temp = arr[2];
+arr[2] = arr[minIndex];
+arr[minIndex] = temp;
+
+document.write("<p>Мінімальний елемент: " + min + " (позиція " + (minIndex + 1) + ")</p>");
+document.write("<p>Масив після заміни: " + arr.join(", ") + "</p>");
+</script>
+</body>
 </html>
+
